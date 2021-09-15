@@ -12,6 +12,7 @@ import org.lwjgl.util.glu.GLU;
 
 import me.pale.player.Player;
 import me.pale.render.RenderManager;
+import me.pale.render.ShaderList;
 
 public class WindowManager {
 	
@@ -29,6 +30,7 @@ public class WindowManager {
 			
 		}
 		Display.destroy();
+		ShaderList.destroyShaders();
 		System.exit(0);
 		
 	}

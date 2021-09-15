@@ -116,6 +116,22 @@ public class Shader {
 		
 	}
 	
+	public Shader destroy() {
+		
+		GL20.glDeleteProgram(shaderPrg);
+		GL20.glDeleteShader(vertexShd);
+		GL20.glDeleteShader(fragmentShd);
+		return this;
+		
+	}
+	
+	public Shader setUniformf(String name, float a) {
+		
+		GL20.glUniform1f(GL20.glGetUniformLocation(shaderPrg, name), a);
+		return this;
+		
+	}
+	
 	public Shader use() {
 		
 		GL20.glUseProgram(shaderPrg);

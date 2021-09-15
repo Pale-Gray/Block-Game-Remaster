@@ -4,7 +4,7 @@ public class Chunk {
 	
 	public Chunk() {} 
 	
-	private static final int CHUNK_DIMENSION = 5;
+	private static final int CHUNK_DIMENSION = 4;
 	
 	private int x, y, z = 0;
 	
