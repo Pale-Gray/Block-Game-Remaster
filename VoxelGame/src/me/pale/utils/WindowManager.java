@@ -23,7 +23,7 @@ public class WindowManager {
 		
 		while (!Display.isCloseRequested()) {
 			
-			Display.setTitle("FPS: " + (Sys.getTimerResolution()));
+			// Display.setTitle("FPS: " + (Sys.getTimerResolution()));
 			RenderManager.initialize();
 			
 			Display.update();

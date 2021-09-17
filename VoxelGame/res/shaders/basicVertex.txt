@@ -2,14 +2,22 @@
 
 varying vec2 V_TexCoord;
 varying vec3 V_Normal;
+varying vec4 V_Position;
+varying vec4 V_Vertex;
+
+int f=0;
 
 uniform float t;
 
 void main() {
 
+	float fac = 0;
+
+	gl_Position = gl_ModelViewProjectionMatrix * vec4(gl_Vertex.x, gl_Vertex.y + fac, gl_Vertex.z, gl_Vertex.w);
+
 	V_TexCoord = gl_MultiTexCoord0.xy;
 	V_Normal = gl_Normal;
-	
-	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	V_Position = gl_Position;
+	V_Vertex = gl_Vertex;
 
 }
