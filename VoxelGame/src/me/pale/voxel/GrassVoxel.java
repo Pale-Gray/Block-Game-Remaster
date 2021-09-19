@@ -15,7 +15,7 @@ public class GrassVoxel extends BaseVoxel {
 	@Override
 	public BaseVoxel draw() {
 		
-		t += 0.0001f;
+		t += 0.001f;
 		
 		if (t > 2 * Math.PI) {
 			
@@ -37,99 +37,132 @@ public class GrassVoxel extends BaseVoxel {
 		
 		vt.bind();
 		
-		GL11.glBegin(GL11.GL_TRIANGLES);
-		//GL11.glColor3f(1, 0, 0);
-		//front
-		GL11.glNormal3f(0.0f, 0.0f, 1.0f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
-		GL11.glTexCoord2f(1.0f, 0.0f);
-		GL11.glVertex3f(0.5f, 0.5f, 0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(0.5f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+		if (front) {
+			
+			GL11.glBegin(GL11.GL_TRIANGLES);
+			//GL11.glColor3f(1, 0, 0);
+			//front
+			GL11.glNormal3f(0.0f, 0.0f, 1.0f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+			GL11.glTexCoord2f(1.0f, 0.0f);
+			GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(0.5f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+			GL11.glEnd();
+			
+		}
 		
-		//left
-		GL11.glNormal3f(-1.0f, 0.0f, 0.0f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
-		GL11.glTexCoord2f(1.0f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(0.5f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+		if (left) {
+			
+			GL11.glBegin(GL11.GL_TRIANGLES);
+			//left
+			GL11.glNormal3f(-1.0f, 0.0f, 0.0f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+			GL11.glTexCoord2f(1.0f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(0.5f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+			GL11.glEnd();
+			
+		}
 		
-		//back
-		GL11.glNormal3f(0.0f, 0.0f, -1.0f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(0.5f, 0.5f, -0.5f);
-		GL11.glTexCoord2f(1.0f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(0.5f, 0.5f);
-		GL11.glVertex3f(0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+		if (back) {
+			
+			GL11.glBegin(GL11.GL_TRIANGLES);
+			//back
+			GL11.glNormal3f(0.0f, 0.0f, -1.0f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+			GL11.glTexCoord2f(1.0f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(0.5f, 0.5f);
+			GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+			GL11.glEnd();
+			
+		}
 		
-		//right
-		GL11.glNormal3f(1.0f, 0.0f, 0.0f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(0.5f, 0.5f, 0.5f);
-		GL11.glTexCoord2f(1.0f, 0.0f);
-		GL11.glVertex3f(0.5f, 0.5f, -0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(1.0f, 0.5f);
-		GL11.glVertex3f(0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(0.5f, 0.5f);
-		GL11.glVertex3f(0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+		if (right) {
+			
+			GL11.glBegin(GL11.GL_TRIANGLES);
+			//right
+			GL11.glNormal3f(1.0f, 0.0f, 0.0f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+			GL11.glTexCoord2f(1.0f, 0.0f);
+			GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(1.0f, 0.5f);
+			GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(0.5f, 0.5f);
+			GL11.glVertex3f(0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+			GL11.glEnd();
+			
+		}
 		
-		//top
-		GL11.glNormal3f(0.0f, 1.0f, 0.0f);
-		GL11.glTexCoord2f(0.0f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
-		GL11.glTexCoord2f(0.5f, 0.0f);
-		GL11.glVertex3f(0.5f, 0.5f, -0.5f);
-		GL11.glTexCoord2f(0.5f, 0.5f);
-		GL11.glVertex3f(0.5f, 0.5f, 0.5f);
-		GL11.glTexCoord2f(0.5f, 0.5f);
-		GL11.glVertex3f(0.5f, 0.5f, 0.5f);
-		GL11.glTexCoord2f(0.0f, 0.5f);
-		GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
-		GL11.glTexCoord2f(0.0f, 0.0f);
-		GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+		if (top) {
+			
+			GL11.glBegin(GL11.GL_TRIANGLES);
+			//top
+			GL11.glNormal3f(0.0f, 1.0f, 0.0f);
+			GL11.glTexCoord2f(0.0f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+			GL11.glTexCoord2f(0.5f, 0.0f);
+			GL11.glVertex3f(0.5f, 0.5f, -0.5f);
+			GL11.glTexCoord2f(0.5f, 0.5f);
+			GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+			GL11.glTexCoord2f(0.5f, 0.5f);
+			GL11.glVertex3f(0.5f, 0.5f, 0.5f);
+			GL11.glTexCoord2f(0.0f, 0.5f);
+			GL11.glVertex3f(-0.5f, 0.5f, 0.5f);
+			GL11.glTexCoord2f(0.0f, 0.0f);
+			GL11.glVertex3f(-0.5f, 0.5f, -0.5f);
+			GL11.glEnd();
+			
+		}
 		
-		//bottom
-		GL11.glNormal3f(0.0f, -1.0f, 0.0f);
-		GL11.glTexCoord2f(0.0f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(0.5f, 0.5f);
-		GL11.glVertex3f(0.5f, -0.5f, 0.5f);
-		GL11.glTexCoord2f(0.5f, 1.0f);
-		GL11.glVertex3f(0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(0.5f, 1.0f);
-		GL11.glVertex3f(0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(0.0f, 1.0f);
-		GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
-		GL11.glTexCoord2f(0.0f, 0.5f);
-		GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
-		
-		GL11.glEnd();
+		if (bottom) {
+			
+			GL11.glBegin(GL11.GL_TRIANGLES);
+			//bottom
+			GL11.glNormal3f(0.0f, -1.0f, 0.0f);
+			GL11.glTexCoord2f(0.0f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(0.5f, 0.5f);
+			GL11.glVertex3f(0.5f, -0.5f, 0.5f);
+			GL11.glTexCoord2f(0.5f, 1.0f);
+			GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(0.5f, 1.0f);
+			GL11.glVertex3f(0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(0.0f, 1.0f);
+			GL11.glVertex3f(-0.5f, -0.5f, -0.5f);
+			GL11.glTexCoord2f(0.0f, 0.5f);
+			GL11.glVertex3f(-0.5f, -0.5f, 0.5f);
+			GL11.glEnd();
+			
+		}
 		
 		GL11.glPopMatrix();
 		

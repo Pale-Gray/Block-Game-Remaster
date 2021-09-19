@@ -1,63 +1,63 @@
 package me.pale.voxel;
 
-import java.util.ArrayList;
 import java.util.Random;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
 
 public class Chunk {
 	
 	public Chunk() {} 
 	
-	private Random r = new Random();
-	
 	private boolean isGenerating = true;
 	
-	private static int CHUNK_DIMENSION = 4;
+	private static int CHUNK_DIMENSION = 16;
+
+	private static int[][][] BLOCKTYPE = new int[CHUNK_DIMENSION][CHUNK_DIMENSION][CHUNK_DIMENSION];
 	
-	private static final int CHUNK_X = 4;
-	private static final int CHUNK_Y = 4;
-	private static final int CHUNK_Z = 4;
-	
-	int i, m, b = 0;
+	int t = 0;
 	
 	private int x, y, z = 0;
 	
-	private float a = 0;
-	private float cvb;
-	
-	ArrayList<Integer> CHUNK_Ys = new ArrayList<Integer>();
+	private Random r = new Random();
 	
 	public void draw() {
 		
-		// System.out.println(Mouse.getDX());
-		
-		if (Keyboard.next()) {
-		
-			if (Keyboard.isKeyDown(Keyboard.KEY_UP)) {
+		if (isGenerating == true) {
+			
+			for (int ix = 0; ix < CHUNK_DIMENSION; ix++) {
 				
-				CHUNK_DIMENSION++;
-				
-			} else if (Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
-				
-				CHUNK_DIMENSION--;
+				for (int iy = 0; iy < CHUNK_DIMENSION; iy++) {
+					
+					for (int iz = 0; iz < CHUNK_DIMENSION; iz++) {
+						
+						int a = 2;
+						
+						BLOCKTYPE[ix][iy][iz] = r.nextInt(a);
+						//System.out.println(BLOCKTYPE[ix][iy][iz]);
+						
+					}
+					
+				}
 				
 			}
+			
+			isGenerating = false;
 			
 		}
 		
 		for (int cx = 0; cx < CHUNK_DIMENSION; cx++) {
 			
-			for (int cy = 0; cy < 1; cy++) {
+			for (int cy = 0; cy < CHUNK_DIMENSION; cy++) {
 				
 				for (int cz = 0; cz < CHUNK_DIMENSION; cz++) {
 					
-					y = cz + cx;
-					float a = 0.8f;
-					float b = 0.8f;
-					VoxelList.GRASS_VOXEL.setX(cx).setY(cy).setZ(cz).draw();
-					// System.out.println(cx + ", " + cy + ", " + cz);
+					// System.out.println(BLOCKTYPE[cx][cy][cz]);
+					
+					if (BLOCKTYPE[cx][cy][cz] != 0 ) {
+						
+						t += 0.1f;
+				
+						VoxelList.GRASS_VOXEL.setX(cx).setY( (int) (Math.sin((cx+cz) / 3) * 2 )).setZ(cz).draw();
+						
+					}
 					
 				}
 				

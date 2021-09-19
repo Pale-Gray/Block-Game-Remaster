@@ -11,9 +11,7 @@ uniform float t;
 
 void main() {
 
-	float fac = 0;
-
-	gl_Position = gl_ModelViewProjectionMatrix * vec4(gl_Vertex.x, gl_Vertex.y + fac, gl_Vertex.z, gl_Vertex.w);
+	gl_Position = gl_ModelViewProjectionMatrix * vec4(gl_Vertex.x, gl_Vertex.y, gl_Vertex.z, gl_Vertex.w);
 
 	V_TexCoord = gl_MultiTexCoord0.xy;
 	V_Normal = gl_Normal;

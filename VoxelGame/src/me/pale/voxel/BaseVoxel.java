@@ -7,6 +7,13 @@ public abstract class BaseVoxel {
 	float x = 0;
 	float y = 0;
 	float z = 0;
+	
+	boolean front = true;
+	boolean back = true;
+	boolean left = true;
+	boolean right = true;
+	boolean top = true;
+	boolean bottom = true;
 
 	public BaseVoxel() {
 		
@@ -44,6 +51,48 @@ public abstract class BaseVoxel {
 	public BaseVoxel setZ(float z) {
 		this.z = z;
 		return this;
+	}
+	
+	public BaseVoxel setFront(boolean t) {
+		
+		front = t;
+		return this;
+		
+	}
+	
+	public BaseVoxel setLeft(boolean t) {
+		
+		left = t;
+		return this;
+		
+	}
+
+	public BaseVoxel setBack(boolean t) {
+		
+		back = t;
+		return this;
+		
+	}
+	
+	public BaseVoxel setRight(boolean t) {
+		
+		right = t;
+		return this;
+		
+	}
+	
+	public BaseVoxel setTop(boolean t) {
+		
+		top = t;
+		return this;
+		
+	}
+	
+	public BaseVoxel setBottom(boolean t) {
+		
+		bottom = t;
+		return this;
+		
 	}
 	
 	/* public void draw() {

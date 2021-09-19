@@ -5,7 +5,7 @@ import org.lwjgl.Sys;
 public class DeltaTime {
 	
 	static long lastTime;
-	static int  delta;
+	static long delta;
 	
 	private static long getTime() {
 		
@@ -13,16 +13,16 @@ public class DeltaTime {
 		
 	}
 	
-	private static int getDelta() {
+	private static float getDelta() {
 		
 		long currentTime = getTime();
-		delta = (int) (currentTime - lastTime);
+		delta = (currentTime - lastTime);
 		lastTime = currentTime;
 		return delta;
 		
 	}
 	
-	public static int getDeltaTime() {
+	public static float getDeltaTime() {
 		
 		return getDelta();
 		
