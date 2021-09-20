@@ -5,6 +5,12 @@ A vision and in-progress game that is similar to Hytale or Minecraft with mods.
 
 BlockGame, or just nothing titled at all, is going to be a game similar to the popular game **Minecraft**, with a twist.
 
+## Progress
+
+Here is a progress video
+
+
+
 ## My Vision
 
 BlockGame will have its main core at being a voxel game. Here is what I envision it to be.
