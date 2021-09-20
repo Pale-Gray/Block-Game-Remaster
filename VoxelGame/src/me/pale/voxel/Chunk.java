@@ -2,6 +2,8 @@ package me.pale.voxel;
 
 import java.util.Random;
 
+import me.pale.utils.OpenSimplexNoise;
+
 public class Chunk {
 	
 	public Chunk() {} 
@@ -12,11 +14,14 @@ public class Chunk {
 
 	private static int[][][] BLOCKTYPE = new int[CHUNK_DIMENSION][CHUNK_DIMENSION][CHUNK_DIMENSION];
 	
-	int t = 0;
+	float t = 0;
+	float a = 0;
 	
 	private int x, y, z = 0;
 	
 	private Random r = new Random();
+	
+	private OpenSimplexNoise osn = new OpenSimplexNoise();
 	
 	public void draw() {
 		
@@ -30,7 +35,7 @@ public class Chunk {
 						
 						int a = 2;
 						
-						BLOCKTYPE[ix][iy][iz] = r.nextInt(a);
+						BLOCKTYPE[ix][iy][iz] = r.nextInt(2);
 						//System.out.println(BLOCKTYPE[ix][iy][iz]);
 						
 					}
@@ -53,9 +58,11 @@ public class Chunk {
 					
 					if (BLOCKTYPE[cx][cy][cz] != 0 ) {
 						
-						t += 0.1f;
+						// float a = 15f;
+						t+=0.00001f;
+						a += 0.0001f;
 				
-						VoxelList.GRASS_VOXEL.setX(cx).setY( (int) (Math.sin((cx+cz) / 3) * 2 )).setZ(cz).draw();
+						VoxelList.GRASS_VOXEL.setX(cx).setY( (int) (osn.eval((cx/a), (cz/a) + t) * Math.sin(a) * 5)   ).setZ(cz).draw();
 						
 					}
 					
