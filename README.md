@@ -7,9 +7,9 @@ BlockGame, or just nothing titled at all, is going to be a game similar to the p
 
 ## Progress
 
-Here is a progress video
+Here is a progress gif
 
-![progress](https://github.com/Pale-Gray/Block-Game-Remaster/blob/main/readme/2021-09-19%2021-20-06.mov)
+![progress](https://github.com/Pale-Gray/Block-Game-Remaster/blob/main/readme/2021-09-19%2021-20-06%20(1).gif)
 
 ## My Vision
 
