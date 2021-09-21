@@ -10,6 +10,8 @@ public class GrassVoxel extends BaseVoxel {
 	float a = 0;
 	float t = 0;
 	
+	public static final int ID = 1;
+	
 	VoxelTexture vt = new VoxelTexture("./res/images/grassblock.png");
 
 	@Override
@@ -171,6 +173,13 @@ public class GrassVoxel extends BaseVoxel {
 		ShaderList.BASIC_SHADER.unuse();
 		
 		return this;
+		
+	}
+
+	@Override
+	public int getID() {
+		
+		return ID;
 		
 	}
 

@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 public abstract class BaseVoxel {
 	
+	public static final int ID = 0;
 	float x = 0;
 	float y = 0;
 	float z = 0;
@@ -25,6 +26,8 @@ public abstract class BaseVoxel {
 	}
 	
 	public abstract BaseVoxel draw();
+	
+	public abstract int getID();
 
 	public float getX() {
 		return x;

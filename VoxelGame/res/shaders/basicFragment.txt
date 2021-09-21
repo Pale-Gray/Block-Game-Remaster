@@ -22,10 +22,13 @@ void main() {
 	
 	vec4 texture = texture2D(tex, vec2(V_TexCoord.x, V_TexCoord.y) );
 	
-	// texture.r = sin(t);
-	
 	// gl_FragColor = texture;
 	
-	gl_FragColor = texture * (AMBIENT + DIFFUSE) * 1.8;
+	vec4 colx = vec4(smoothstep(0.0, 1.0, V_TexCoord.x), 0.0, 0.0, 1.0 );
+	vec4 coly = vec4(0.0, smoothstep(0.0, 1.0, V_TexCoord.x), 0.0, 1.0 );
+	
+	// vec4 col = smoothstep(colx, coly, V_TexCoord.x);
+	
+	gl_FragColor = (texture * (AMBIENT + DIFFUSE) * 1.8);
 
 }
